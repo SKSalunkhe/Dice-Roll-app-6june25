@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title>Die Roll App</title>
+	<style>
+		body {
+			background: linear-gradient(135deg, #f7f7f7, #dfe9f3);
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin: 0;
+			padding-top: 12vh; /* Make room for fixed header */
+			text-align: center;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 3vw;
+			margin-top: 5vh;
+			margin-bottom: 3vh;
+			text-shadow: 1px 1px 2px #aaa;
+		}
+
+
+		form {
+			margin-bottom: 2vh;
+		}
+
+		input[type="submit"] {
+			background-color: #ff5252;
+			color: white;
+			border: none;
+			padding: 1vw 3vw;
+			border-radius: 12px;
+			font-size: 1.5vw;
+			cursor: pointer;
+			transition: 0.3s ease;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		input[type="submit"]:hover {
+			background-color: #e53935;
+			transform: scale(1.05);
+		}
+
+		img {
+			width: 10vw;
+			max-width: 100px;
+			transition: transform 0.2s ease;
+			filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+		}
+
+		img:active {
+			transform: rotate(10deg) scale(1.1);
+		}
+	</style>
+</head>
+<body>
+	<h1>🎲 Die Roll App 🎲</h1>
+
+	<form onsubmit="show(event)">
+		<input type="submit" value="Roll the Dice" />
+	</form>
+
+	<img id="im1" src="d1.png" alt="dice 1" />
+
+	<script>
+		function show(event) {
+			event.preventDefault();
+			const im1 = document.getElementById("im1");
+			const images = ['d1.png', 'd2.png', 'd3.png', 'd4.png', 'd5.png', 'd6.png'];
+			const r = Math.floor(Math.random() * images.length);
+			im1.src = images[r];
+			im1.alt = "dice " + (r + 1);
+		}
+	</script>
+</body>
+</html>
